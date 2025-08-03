@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deeper Research Synthetic</title>
+    
+    <!-- DEPENDENCIES -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #d1d5db;
+            font-family: 'Inter', sans-serif;
+        }
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.85);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 50;
+            backdrop-filter: blur(5px);
+        }
+        .modal-content {
+            background-color: #111827;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            width: 90%;
+            max-width: 60rem;
+            max-height: 90vh;
+            overflow-y: auto;
+            border: 1px solid #374151;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        // ===================================================================================
+        // ============================ DATA & CONTENT INJECTION =============================
+        // ===================================================================================
+
+        const gazaReportContent = `
+# The Hunger Algorithm: Gaza and the Ghost of Humanitarian Aid
+
+Good morning.
+
+**(Slight pause, the sound of a low, ambient hum begins, subtly underpinning the narration)**
+
+When does an act of charity become an act of control? At what point does the hand that feeds become the hand that guides, or even the hand that condemns? We are taught to believe in the inherent good of humanitarian aid, to see it as a pure, apolitical expression of our shared responsibility to one another. But what happens when that lifeline is coiled into a leash? What happens when food, medicine, and shelter are no longer just resources for survival, but tools in a grander, more terrifying strategy? This leads us to our central question, the one that will haunt every moment of our investigation today: When humanitarian aid becomes a mechanism of control, who bears the ultimate responsibility for the ensuing human catastrophe?
+
+Dive deep. Dive Beyond. Today in 'Paradroid's : Podcast Synthetic'. Prepare for data infusion. 3. 2. 1 -
+
+## Act I: The Anomaly / The Setup
+
+### The Siege of Scarcity
+To understand the story we are about to dissect, we must first transport ourselves to a place where the very air seems to vibrate with the tension of survival. We must go to the Gaza Strip in late 2024 and early 2025. This is not a simple backdrop for our story; it is the crucible in which it was forged. The term 'humanitarian crisis' is used so often in our media streams that it risks losing its meaning, becoming a sterile label for an unimaginable reality. But for the more than two million souls trapped within this narrow coastal enclave, the crisis was anything but sterile. It was the dust of bombed-out buildings coating their tongues, the gnawing emptiness in their stomachs, the constant, high-pitched whine of drones that had become the unofficial anthem of their existence.
+
+The context is a war, a brutal and relentless one. Following the events of the preceding year, the Gaza Strip was subjected to a near-constant Israeli air bombardment. This wasn't a war fought on distant frontlines; it was a war fought in apartment blocks, in marketplaces, in the very streets where children once played. The infrastructure of life, already fragile after years of blockade, was systematically dismantled. Hospitals, the sanctuaries of the sick and wounded, became targets. Bakeries, the sources of daily bread, were reduced to rubble. Water treatment plants, the silent guardians of public health, were crippled. Life was stripped back to its most primitive components: the search for shelter, the hunt for potable water, the desperate, all-consuming quest for food.
+
+Before the war, Gaza's survival was a logistical feat, a fragile ecosystem dependent on a steady influx of resources from the outside world. On an average day, between 500 and 600 trucks laden with food, medicine, and other essential goods would cross the border, a lifeline that kept the territory from plunging into complete destitution. But with the onset of the war, that lifeline was severed. The flow of trucks slowed to a trickle, and then, for long periods, stopped altogether. The consequences were as predictable as they were horrifying. The entire population, every single man, woman, and child, was pushed into a state of acute food insecurity.
+
+This is not a metaphor. It is a clinical, devastating assessment. The Integrated Food Security Phase Classification, or IPC, the global standard for measuring these crises, painted a picture of almost biblical despair. By early 2025, intermittent famine conditions had been declared in large parts of the strip. Famine. A word we associate with history books, with black-and-white photographs from a less sophisticated age. Yet here it was, in the 21st century, engineered by blockades and bombardments. We are told that nearly half a million people were facing what is termed "catastrophic hunger conditions," the highest, most severe level on the IPC scale. It is a state where starvation, death, and destitution are evident. For seventy thousand children, the situation was even more acute; they were in urgent need of treatment for severe acute malnutrition, a condition that, even if survived, can leave a child with lifelong physical and cognitive impairments.
+
+Imagine the impossible choices faced by parents. Do you risk a journey through a war zone, under the ever-present threat of an airstrike, for the slim chance of finding a handful of flour? Do you give the last of the water to your youngest child, knowing your own strength is failing? This was the daily calculus of existence in Gaza. It was a pressure cooker, designed, whether by intent or by consequence, to break the human spirit. And while this was happening, a staggering quantity of aid, over 116,000 metric tons of food assistance, sat waiting in warehouses and on trucks, just across the border, ready for delivery. It was a mountain of salvation, held back by a wall of political will. It was into this environment, this vortex of desperation and engineered scarcity, that a new player was about to enter the stage. A player that promised a solution, a new way forward. A player that called itself the Gaza Humanitarian Foundation.
+`
+
+        const airborneReportContent = `
+# Thunder from Heaven: A Comprehensive Military History of the 17th Airborne Division in World War II
+
+This report provides a comprehensive military analysis of the 17th Airborne Division, the "Golden Talons," during the Second World War. From its activation in the crucible of a global conflict to its climactic deployment in the largest single-day airborne operation in history, the 17th Airborne's journey is a testament to the evolution of military doctrine and the extraordinary courage of the American soldier. The division's story is inextricably linked to the development and validation of the United States Army's concept of vertical envelopment—a new and revolutionary method of warfare centered on elite, highly mobile airborne troops. This analysis will delve into the division's formation under the visionary leadership of Major General William M. Miley, its grueling training at Camp Mackall, its brutal baptism of fire in the frozen forests of the Ardennes during the Battle of the Bulge, and its defining moment dropping from the skies over Germany in Operation Varsity. Furthermore, this report will explore the human dimension of this elite unit, examining the lives and actions of its commanders, officers, and enlisted men, whose collective sacrifice and tenacity earned them their motto and their place in history: Thunder from Heaven. Through an examination of its campaigns, its contribution to airborne doctrine, and the valor of its individual troopers, the full legacy of this remarkable fighting force will be illuminated.
+
+## The Vertical Envelopment: Genesis of American Airborne Warfare
+The emergence of the 17th Airborne Division was not an isolated event but rather the culmination of a revolutionary shift in military thinking that swept through the world's armies in the late 1930s and early 1940s. The traditional, linear battlefield, defined by fronts, flanks, and rear areas, was fundamentally challenged by the concept of "vertical envelopment"—the idea of inserting troops from the air directly onto or behind enemy lines. This new dimension of warfare promised to shatter enemy cohesion, seize vital objectives, and achieve a level of strategic and tactical surprise previously unimaginable. The United States, initially a hesitant observer of these developments, was spurred by the shocking success of German airborne operations in the opening stages of World War II to rapidly develop its own formidable airborne capability. The creation of divisions like the 17th was the direct result of this doctrinal revolution, an American commitment to mastering the sky as the new high ground of modern combat.
+
+### The German Precedent and Early Allied Concepts
+The strategic potential of airborne forces was first and most dramatically demonstrated by the German Wehrmacht in its blitzkrieg campaigns of 1940 and 1941. The surprise seizure of the Belgian fortress of Eben-Emael by a small force of German glider troops in May 1940 was a watershed moment. While parachute troops had been used before, the surgical precision and shock effect of the glider assault on what was considered an impregnable fortification sent shockwaves through Allied military commands. This operation, followed by the large-scale, albeit costly, parachute and glider invasion of Crete in May 1941 (Operation Merkur), cemented the reality that no point behind a frontline was truly secure from attack. The German Fallschirmjäger had established a new and terrifying precedent, proving that airborne troops could be used not just for raids but for strategic conquest.
+`
+
+        const hcbReportContent = `
+## Human Condition Benchmark Framework: Comprehensive Crisis Assessment and Global Security Analysis
+
+**Assessment Date: August 1, 2025**
+
+The current global security environment represents the most perilous moment for humanity since the Cuban Missile Crisis of 1962, with multiple indicators converging to signal a systemic breakdown of international order and unprecedented threats to human civilization. This comprehensive assessment reveals that global conflict casualties are projected to exceed 226,000 deaths in 2025, marking the highest levels of violence since World War II, while nuclear-armed powers engage in direct military positioning that threatens to escalate beyond conventional warfare parameters. The deployment of U.S. nuclear submarines near Russia on August 1, 2025, coupled with explicit nuclear threats from former Russian President Dmitry Medvedev invoking the "Dead Hand" automated retaliation system, represents a dangerous crossing of established diplomatic red lines that has fundamentally altered the calculus of superpower confrontation. Contemporary analysis indicates that 59 active state-based conflicts now rage across the globe, with 110 million people forcibly displaced by violence, creating the largest refugee crisis in recorded history and straining international humanitarian systems beyond their operational capacity. The economic impact of violence has reached $19.97 trillion globally, equivalent to 11.6% of world GDP, while military expenditure alone accounts for $2.7 trillion annually, reflecting an unprecedented militarization of international relations that diverts critical resources from addressing fundamental human needs and development challenges.
+
+## The Architecture of Global Crisis: Contemporary Threat Assessment
+### Systematic Breakdown of International Order
+The contemporary international system faces what scholars and policymakers increasingly describe as "The Great Fragmentation," a fundamental reshaping of global power structures that has resulted in the highest number of active conflicts since the end of the World War II. This fragmentation reflects the collapse of the unipolar moment that characterized the immediate post-Cold War period, replaced by a multipolar configuration characterized by competing spheres of influence, contested norms, and the erosion of international institutions that previously provided mechanisms for conflict prevention and resolution. The number of globally influential countries has nearly tripled since the end of the Cold War, rising from 13 to 34 by 2023, creating a complex web of competing interests and allegiances that defies traditional alliance structures and diplomatic frameworks.
+`
+        
+        const frameworksExplanation = {
+            "Deeper Research Framework": {
+                title: "Deeper Research Framework",
+                description: "Produces exhaustive, academic-style white papers and research reports (10,000+ words). This framework is designed for deep, evidence-based analysis of complex subjects, providing a foundational understanding for experts and enthusiasts alike.",
+                goal: "To create a comprehensive, well-structured, and highly detailed research report in response to a user's query, written for an academic audience.",
+                flow: [
+                    "Query Deconstruction & Initial Scope",
+                    "Source Analysis & Synthesis Strategy",
+                    "Detailed Outline Generation",
+                    "Final Plan Review & Readiness Check",
+                    "Full Report Generation"
+                ],
+                example: "A Military History of the 17th Airborne Division."
+            },
+            "Podcast Synthetic Framework": {
+                title: "Podcast Synthetic Framework",
+                description: "Creates compelling, narrative-driven podcast episodes (15,000+ words) from a variety of sources. It excels at transforming dense information and even existing video content into engaging, story-driven analyses suitable for audio formats.",
+                goal: "To transform a complex topic, source materials, or conversation log into a long-form, narrative-driven podcast episode transcript.",
+                flow: [
+                    "Deconstruction & Narrative Scoping",
+                    "Source Synthesis & Narrative Strategy",
+                    "Blueprint Creation (Detailed Outline)",
+                    "Final Plan Review & Readiness Check",
+                    "Full Transcript Generation"
+                ],
+                example: "The Hunger Algorithm: Gaza and the Ghost of Humanitarian Aid."
+            },
+            "Human Condition Benchmark (HCB) Framework": {
+                title: "Human Condition Benchmark (HCB) Framework",
+                description: "Generates data-driven, infographic-rich dashboards that provide a snapshot of global crises. Using a DEFCON-style risk assessment and scoring various domains of human well-being, it is designed for immediate, high-impact communication of the current state of the world.",
+                goal: "To deliver an impartial, comprehensive, and transparent evaluation of the global human condition for a specified review date, integrating well-being benchmarks with a DEFCON-style crisis posture score.",
+                flow: [
+                    "State Review Date & Collect Data",
+                    "Assign Scores (1-10) to Criteria",
+                    "Integrate DEFCON-style Crisis Posture",
+                    "Present Findings in Tables & Narrative Summary",
+                    "Cite all sources and update for each review date"
+                ],
+                example: "Human Condition Report: August 1, 2025."
+            }
+        };
+
+        // ===================================================================================
+        // ============================ REACT COMPONENTS =====================================
+        // ===================================================================================
+
+        const GazaReport = ({ onBack }) => {
+            const ReportRenderer = ({ text }) => {
+                const lines = text.trim().split('\n');
+                const elements = [];
+                lines.forEach((line, index) => {
+                    if (line.startsWith('### ')) {
+                        elements.push(<h3 key={index}>{line.substring(4)}</h3>);
+                    } else if (line.startsWith('## ')) {
+                        elements.push(<h2 key={index}>{line.substring(3)}</h2>);
+                    } else if (line.startsWith('# ')) {
+                        // Internal title, not rendered
+                    } else if (line.trim() !== '') {
+                        elements.push(<p key={index}>{line}</p>);
+                    }
+                });
+                return <React.Fragment>{elements}</React.Fragment>;
+            };
+
+            return (
+                <div style={{ fontFamily: "'Roboto Mono', monospace", backgroundColor: '#020c17', color: '#c8ffff' }}>
+                    <style>{`
+                        .gaza-report-container { width: 100%; max-width: 900px; margin: 2rem auto; padding: 2rem; box-sizing: border-box; border: 1px solid rgba(0, 255, 255, 0.2); background: rgba(2, 12, 23, 0.5); }
+                        .gaza-report-content h2 { font-family: 'Orbitron', sans-serif; font-size: 2rem; color: #00ffff; text-shadow: 0 0 5px rgba(0, 255, 255, 0.5); margin-top: 2.5rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(0, 255, 255, 0.2); padding-bottom: 0.5rem; }
+                        .gaza-report-content h3 { font-family: 'Orbitron', sans-serif; font-size: 1.5rem; color: #00ffff; text-shadow: 0 0 5px rgba(0, 255, 255, 0.5); margin-top: 1.5rem; margin-bottom: 0.75rem; }
+                        .gaza-report-content p { margin-bottom: 1.5rem; text-align: justify; line-height: 1.8; font-weight: 300; font-size: 1.1rem; }
+                    `}</style>
+                    <div className="p-4">
+                        <button onClick={onBack} className="text-blue-400 hover:text-blue-200 mb-4">&larr; Back to Dashboard</button>
+                        <div className="gaza-report-container">
+                            <article className="gaza-report-content">
+                                <ReportRenderer text={gazaReportContent} />
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        const AirborneReport = ({ onBack }) => {
+            const ReportRenderer = ({ text }) => {
+                const lines = text.trim().split('\n');
+                const elements = [];
+                lines.forEach((line, index) => {
+                    if (line.startsWith('### ')) {
+                        elements.push(<h3 key={index} className="text-2xl font-semibold mt-6 mb-2 text-gray-100">{line.substring(4)}</h3>);
+                    } else if (line.startsWith('## ')) {
+                        elements.push(<h2 key={index} className="text-3xl font-bold mt-8 mb-4 pb-2 border-b border-gray-600 text-white">{line.substring(3)}</h2>);
+                    } else if (line.startsWith('# ')) {
+                        elements.push(<h1 key={index} className="text-4xl font-extrabold text-center mb-6 text-white">{line.substring(2)}</h1>);
+                    } else if (line.trim() !== '') {
+                        elements.push(<p key={index} className="mb-4 text-lg leading-relaxed">{line}</p>);
+                    }
+                });
+                return <React.Fragment>{elements}</React.Fragment>;
+            };
+
+            return (
+                <div className="bg-gray-800 text-gray-300 min-h-screen p-4 md:p-8">
+                     <button onClick={onBack} className="text-blue-400 hover:text-blue-200 mb-4">&larr; Back to Dashboard</button>
+                    <div className="max-w-5xl mx-auto bg-gray-900 p-6 md:p-10 rounded-lg shadow-2xl">
+                        <ReportRenderer text={airborneReportContent} />
+                    </div>
+                </div>
+            );
+        };
+
+        const HCBReport = ({ onBack }) => {
+            React.useEffect(() => {
+                // DEFCON Meter
+                const needle = document.getElementById('defcon-needle');
+                setTimeout(() => {
+                    needle.style.transform = 'rotate(-72deg)';
+                }, 500);
+
+                // Chart.js instances
+                const chartOptions = { plugins: { legend: { labels: { color: '#d1d5db' } } }, scales: { y: { ticks: { color: '#9ca3af' }, grid: { color: '#374151' } }, x: { ticks: { color: '#9ca3af' }, grid: { color: '#374151' } } } };
+                new Chart(document.getElementById('casualtiesChart'), { type: 'bar', data: { labels: ['2024 Actual', '2025 Projected'], datasets: [{ label: 'Casualties (in thousands)', data: [148.41, 226.71], backgroundColor: ['#3b82f6', '#ef4444'], borderColor: ['#1e40af', '#991b1b'], borderWidth: 1 }] }, options: chartOptions });
+                new Chart(document.getElementById('topWarsChart'), { type: 'doughnut', data: { labels: ['Ukraine', 'Palestine', 'B. Faso', 'Sudan', 'Myanmar', 'Somalia', 'Syria', 'Mexico', 'DR Congo', 'Ethiopia'], datasets: [{ label: 'Top Wars Share', data: [38.7, 12.9, 10.7, 10.4, 6.82, 5.67, 5.37, 3.89, 3.33, 2.21], backgroundColor: ['#3b82f6', '#ef4444', '#f97316', '#eab308', '#84cc16', '#14b8a6', '#6366f1', '#a855f7', '#ec4899', '#f43f5e'] }] }, options: { plugins: { legend: { display: false } } } });
+                new Chart(document.getElementById('nuclearTimelineChart'), { type: 'line', data: { datasets: [{ label: 'Escalation Step', data: [{ x: '2025-07-28', y: 1, label: 'Ultimatum' }, { x: '2025-07-31', y: 2, label: 'Nuke Threat' }, { x: '2025-08-01', y: 3, label: 'Sub Deploy' }], borderColor: '#ef4444', backgroundColor: '#ef4444', tension: 0.1, pointRadius: 5, pointHoverRadius: 8 }] }, options: { scales: { x: { type: 'time', time: { unit: 'day' }, ticks: { color: '#9ca3af' }, grid: { color: '#374151' } }, y: { display: false } }, plugins: { legend: { display: false }, tooltip: { callbacks: { title: (context) => context[0].raw.label } } } } });
+                
+                // Tab logic
+                const benchmarkData = { "Societal Well-Being": [{ metric: "Health", score: 4, best: "Germany's universal healthcare covering 99.9% of population.", failure: "48,384 civilians killed in conflicts globally in 2024." }, { metric: "Mental Health", score: 3, best: "Finland's comprehensive mental health services reducing suicide rates 30%.", failure: "Ukraine reports 70% of population showing PTSD symptoms." }, { metric: "Education", score: 5, best: "South Korea achieving 99% literacy and leading PISA scores.", failure: "110 million people displaced by conflict, disrupting education." }], "Technological Impact": [{ metric: "AI Integration", score: 6, best: "Poland leading Central Europe in AI implementation with 40% business adoption.", failure: "China-Russia joint military AI exercises threatening Western technology advantage." }, { metric: "Digital Equity", score: 4, best: "Estonia's 99% digital government services availability.", failure: "Russian cyberattacks on Ukrainian infrastructure continue." }, { metric: "Trust", score: 2, best: "Denmark maintaining 75% public trust in institutions.", failure: "Medvedev's 'Dead Hand' nuclear threats spread via social media." }], "Moral & Ethical Fortitude": [{ metric: "Whistleblowing", score: 3, best: "European Parliament strengthening whistleblower protections.", failure: "Russia silencing dissent with 502 human rights defenders killed in 2024." }, { metric: "Civic Rights", score: 2, best: "New Zealand expanding indigenous rights recognition.", failure: "1 in 5 people globally experience discrimination." }, { metric: "Social Trust", score: 2, best: "Switzerland's direct democracy maintaining high civic engagement.", failure: "Trump-Medvedev nuclear threats eroding diplomatic norms." }], "Environmental Sustainability": [{ metric: "Carbon Reduction", score: 4, best: "Norway achieving 85% renewable energy mix.", failure: "Wars producing massive carbon emissions from military operations." }, { metric: "Biodiversity", score: 3, best: "Costa Rica reversing deforestation with 54% forest cover.", failure: "Conflict zones experiencing accelerated environmental destruction." }, { metric: "Food Security", score: 3, best: "Netherlands leading agricultural innovation with vertical farming.", failure: "Ukraine grain exports disrupted, affecting global food supply." }], "Equity & Justice": [{ metric: "Income Equity", score: 3, best: "Slovenia reducing inequality with comprehensive social programs.", failure: "Global military spending reached $19.1 trillion, 13.5% of GDP." }, { metric: "Mobility", score: 4, best: "Canada's merit-based immigration system enabling social mobility.", failure: "110 million people forcibly displaced by violence." }, { metric: "Representation", score: 4, best: "Rwanda achieving 61% women in parliament.", failure: "Authoritarian conflicts limiting democratic representation." }], "Collective Adaptation & Innovation": [{ metric: "Crisis Response", score: 2, best: "Germany delivering Patriot systems to Ukraine within days.", failure: "Trump's nuclear submarine deployment escalating rather than de-escalating." }, { metric: "System Innovation", score: 3, best: "Estonia's blockchain-based digital identity system.", failure: "Russia developing hypersonic nuclear delivery systems." }, { metric: "Global Solidarity", score: 1, best: "NATO Article 5 collective defense commitment.", failure: "China-Russia 'Joint Sea 2025' exercises undermining Western unity." }] };
+                const conflictZonesData = [ { zone: "Ukraine-Russia", casualties: "47,673", trend: "Escalating", threat: "Nuclear escalation risk" }, { zone: "Palestine-Israel", casualties: "15,917", trend: "High intensity", threat: "Regional spillover" }, { zone: "Burkina Faso", casualties: "13,225", trend: "Worsening", threat: "Terrorism/instability" }, { zone: "Sudan", casualties: "12,854", trend: "Civil collapse", threat: "Humanitarian crisis" }, { zone: "Myanmar", casualties: "8,408", trend: "Persistent", threat: "Military dictatorship" }, { zone: "Somalia", casualties: "6,987", trend: "Chronic", threat: "Failed state dynamics" }, { zone: "Syria", casualties: "6,627", trend: "Ongoing", threat: "Proxy conflicts" }, { zone: "Mexico", casualties: "4,796", trend: "Drug war", threat: "Organized crime" }, { zone: "DR Congo", casualties: "4,110", trend: "Resource conflicts", threat: "Regional instability" }, { zone: "Ethiopia", casualties: "2,724", trend: "Ethnic violence", threat: "State fragmentation" } ];
+                const tabsContainer = document.getElementById('tabs-container');
+                const tabContentContainer = document.getElementById('tab-content-container');
+                const domains = Object.keys(benchmarkData);
+                domains.forEach((domain, index) => { const button = document.createElement('button'); button.textContent = domain; button.className = `px-4 py-2 rounded-lg font-semibold transition-colors duration-300 ${index === 0 ? 'bg-blue-600 text-white' : 'bg-gray-700 text-gray-300'}`; button.dataset.tab = domain; tabsContainer.appendChild(button); });
+                const renderTabContent = (domain) => { const data = benchmarkData[domain]; let content = `<div class="overflow-x-auto"><table class="w-full text-left"><thead class="bg-gray-700 text-gray-300 uppercase text-sm"><tr><th class="p-3">Metric</th><th class="p-3 w-16">Score</th><th class="p-3">Best-Case Example</th><th class="p-3">Gap/Failure Example</th></tr></thead><tbody>`; data.forEach(item => { const scoreColor = item.score <= 3 ? 'text-red-400' : item.score <= 6 ? 'text-yellow-400' : 'text-green-400'; content += `<tr class="border-b border-gray-700"><td class="p-3 font-semibold text-white">${item.metric}</td><td class="p-3 text-center font-bold text-lg ${scoreColor}">${item.score}</td><td class="p-3 text-sm text-green-300">${item.best}</td><td class="p-3 text-sm text-red-300">${item.failure}</td></tr>`; }); content += `</tbody></table></div>`; tabContentContainer.innerHTML = content; };
+                tabsContainer.addEventListener('click', e => { if (e.target.tagName === 'BUTTON') { const domain = e.target.dataset.tab; renderTabContent(domain); document.querySelectorAll('#tabs-container button').forEach(btn => { btn.classList.remove('bg-blue-600', 'text-white'); btn.classList.add('bg-gray-700', 'text-gray-300'); }); e.target.classList.add('bg-blue-600', 'text-white'); e.target.classList.remove('bg-gray-700', 'text-gray-300'); } });
+                renderTabContent(domains[0]);
+                const conflictTbody = document.getElementById('conflict-zones-tbody'); let conflictHtml = ''; conflictZonesData.forEach(conflict => { let trendColor = ''; if (conflict.trend === 'Escalating' || conflict.trend === 'Worsening') { trendColor = 'text-red-400'; } else if (conflict.trend === 'High intensity' || conflict.trend === 'Persistent' || conflict.trend === 'Chronic') { trendColor = 'text-yellow-400'; } conflictHtml += `<tr class="border-b border-gray-700 hover:bg-gray-700/50"><td class="p-3 font-semibold text-white">${conflict.zone}</td><td class="p-3">${conflict.casualties}</td><td class="p-3 font-semibold ${trendColor}">${conflict.trend}</td><td class="p-3">${conflict.threat}</td></tr>`; }); conflictTbody.innerHTML = conflictHtml;
+            }, []);
+
+            return (
+                <div className="bg-gray-900 text-gray-300">
+                    <style>{`
+                        .defcon-meter-bg { background: conic-gradient(from 180deg at 50% 100%, #ef4444 0deg 36deg, #f97316 36deg 72deg, #eab308 72deg 108deg, #22c55e 108deg 144deg, #3b82f6 144deg 180deg); }
+                        .defcon-needle { transform-origin: bottom center; transition: transform 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55); }
+                        .hcb-report-content h2 { font-size: 1.875rem; line-height: 2.25rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; border-bottom: 1px solid #4b5563; padding-bottom: 0.5rem; }
+                        .hcb-report-content h3 { font-size: 1.5rem; line-height: 2rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+                        .hcb-report-content p { margin-bottom: 1rem; line-height: 1.75; }
+                    `}</style>
+                    <div className="container mx-auto p-4 md:p-8">
+                        <button onClick={onBack} className="text-blue-400 hover:text-blue-200 mb-4">&larr; Back to Dashboard</button>
+                        <header className="text-center mb-8">
+                            <h1 className="text-3xl md:text-5xl font-extrabold text-white">Human Condition Report</h1>
+                            <p className="text-lg md:text-xl text-blue-400 mt-2">Assessment Date: August 1, 2025</p>
+                        </header>
+                        <div className="bg-red-800 border-t-4 border-red-500 rounded-b text-red-100 px-4 py-3 shadow-lg mb-8" role="alert">
+                            <div className="flex items-center">
+                                <div className="py-1"><svg className="fill-current h-6 w-6 text-red-400 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zM9 5v6h2V5H9zm0 8h2v2H9v-2z"/></svg></div>
+                                <div>
+                                    <p className="font-bold text-xl">DEFCON LEVEL 1: SYSTEMIC CRISIS</p>
+                                    <p className="text-sm">Global security has deteriorated to its most dangerous level since the Cold War. Existential threats are active.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                            <div className="bg-gray-800 p-6 rounded-lg shadow-lg col-span-1 md:col-span-2 lg:col-span-1 flex flex-col items-center justify-center">
+                                <h2 className="text-xl font-bold text-white mb-4">CRISIS LEVEL</h2>
+                                <div className="relative w-48 h-24">
+                                    <div className="defcon-meter-bg w-full h-full rounded-t-full"></div>
+                                    <div className="absolute bottom-0 left-1/2 -ml-1 w-2 h-16 bg-white rounded-full defcon-needle" id="defcon-needle"></div>
+                                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 bg-gray-800 w-8 h-4 rounded-t-md"></div>
+                                </div>
+                                <div className="flex justify-between w-52 text-xs mt-1 text-gray-400">
+                                    <span>5</span><span>4</span><span>3</span><span>2</span><span>1</span>
+                                </div>
+                            </div>
+                            <div className="bg-gray-800 p-6 rounded-lg shadow-lg col-span-1 md:col-span-2 lg:col-span-1"><h2 className="text-xl font-bold text-white mb-4 text-center">Conflict Casualties</h2><canvas id="casualtiesChart"></canvas></div>
+                            <div className="bg-gray-800 p-6 rounded-lg shadow-lg"><h2 className="text-xl font-bold text-white mb-4 text-center">Top Wars Share (2025)</h2><canvas id="topWarsChart"></canvas></div>
+                            <div className="bg-gray-800 p-6 rounded-lg shadow-lg"><h2 className="text-xl font-bold text-white mb-4 text-center">Nuclear Escalation Timeline</h2><canvas id="nuclearTimelineChart"></canvas></div>
+                        </div>
+                        <div className="bg-gray-800 p-6 rounded-lg shadow-lg mb-8">
+                            <h2 className="text-2xl font-bold text-white mb-4 text-center">Core Benchmark Domains</h2>
+                            <p className="text-center mb-6">Overall Benchmark Average: <span className="font-bold text-red-400 text-2xl">3.2 / 10</span></p>
+                            <div id="tabs-container" className="flex flex-wrap justify-center gap-2 mb-6"></div>
+                            <div id="tab-content-container"></div>
+                        </div>
+                        <div className="bg-gray-800 p-6 rounded-lg shadow-lg mb-8">
+                            <h2 className="text-2xl font-bold text-white mb-4 text-center">Key Conflict Zones & Analysis</h2>
+                            <div className="overflow-x-auto"><table className="w-full text-left"><thead className="bg-gray-700 text-gray-300 uppercase text-sm"><tr><th className="p-3">Conflict Zone</th><th className="p-3">2025 Casualties (Est.)</th><th className="p-3">Trend</th><th className="p-3">Primary Threat</th></tr></thead><tbody id="conflict-zones-tbody"></tbody></table></div>
+                        </div>
+                        <div className="bg-gray-800 p-6 md:p-8 rounded-lg shadow-lg">
+                            <h2 className="text-3xl font-bold text-white mb-6 text-center">Full Assessment Report</h2>
+                            <div className="hcb-report-content max-w-4xl mx-auto text-gray-300">
+                                <div dangerouslySetInnerHTML={{ __html: hcbReportContent.replace(/\n/g, '<br />').replace(/## (.*?)(<br \/>)/g, '<h2>$1</h2>').replace(/### (.*?)(<br \/>)/g, '<h3>$1</h3>').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }} />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        const FrameworksModal = ({ onClose }) => {
+            return (
+                <div className="modal-overlay" onClick={onClose}>
+                    <div className="modal-content" onClick={e => e.stopPropagation()}>
+                        <div className="flex justify-between items-start">
+                            <h2 className="text-3xl font-bold text-white mb-6">The Philosophy: AI as a Force Multiplier</h2>
+                            <button onClick={onClose} className="text-gray-400 hover:text-white">&times;</button>
+                        </div>
+                        <p className="text-gray-300 mb-6">This project is a statement against the outsourcing of thought. We believe AI's true potential lies not in replacing human intellect, but in amplifying it. Our methodology is built on a "force multiplier" principle, using a layered, multi-tool approach that requires human guidance, curiosity, and expertise at every stage. We embrace transparency, allowing users to see *how* the AI agent deconstructs and rebuilds ideas, turning the content into a learning tool itself.</p>
+                        <div className="space-y-8">
+                            {Object.values(frameworksExplanation).map(fw => (
+                                <div key={fw.title} className="bg-gray-800 p-6 rounded-lg border border-gray-700">
+                                    <h3 className="text-2xl font-bold text-blue-400 mb-3">{fw.title}</h3>
+                                    <p className="mb-4 text-gray-300">{fw.description}</p>
+                                    <div className="mb-4">
+                                        <h4 className="font-semibold text-lg text-white mb-2">Goal:</h4>
+                                        <p className="text-gray-400">{fw.goal}</p>
+                                    </div>
+                                    <div className="mb-4">
+                                        <h4 className="font-semibold text-lg text-white mb-2">Process Flow:</h4>
+                                        <ol className="list-decimal list-inside text-gray-400 space-y-1">
+                                            {fw.flow.map(step => <li key={step}>{step}</li>)}
+                                        </ol>
+                                    </div>
+                                    <div>
+                                        <h4 className="font-semibold text-lg text-white mb-2">Example in Prototype:</h4>
+                                        <p className="text-gray-400 italic">{fw.example}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        const Dashboard = ({ onSelectReport }) => {
+            const [showModal, setShowModal] = React.useState(false);
+
+            return (
+                <div className="min-h-screen bg-gray-900 text-white p-8">
+                    <header className="text-center mb-12">
+                        <h1 className="text-5xl font-extrabold mb-2">Deeper Research Synthetic</h1>
+                        <p className="text-xl text-gray-400 max-w-3xl mx-auto">An agentic ecosystem for generating iron-clad, unbiased understanding in a world flooded with low-effort AI "slop."</p>
+                    </header>
+
+                    <div className="text-center mb-12">
+                        <button onClick={() => setShowModal(true)} className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-transform transform hover:scale-105 shadow-lg">
+                            View The Philosophy & Backend Logic
+                        </button>
+                    }
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                        {/* Card 1: HCB Report */}
+                        <div className="bg-gray-800 rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 cursor-pointer border border-transparent hover:border-red-400" onClick={() => onSelectReport('hcb')}>
+                            <div className="p-6">
+                                <h2 className="text-2xl font-bold mb-2 text-red-400">Human Condition Report</h2>
+                                <p className="text-gray-400 mb-4">Data-driven global crisis dashboard with a DEFCON-style risk assessment.</p>
+                                <span className="font-semibold text-blue-400">View Dashboard &rarr;</span>
+                            </div>
+                        </div>
+
+                        {/* Card 2: Gaza Report */}
+                        <div className="bg-gray-800 rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 cursor-pointer border border-transparent hover:border-cyan-400" onClick={() => onSelectReport('gaza')}>
+                            <div className="p-6">
+                                <h2 className="text-2xl font-bold mb-2 text-cyan-400">Podcast Synthetic</h2>
+                                <p className="text-gray-400 mb-4">Narrative-driven, audio-first analysis of complex current events.</p>
+                                <span className="font-semibold text-blue-400">View Transcript &rarr;</span>
+                            </div>
+                        </div>
+
+                        {/* Card 3: Airborne Report */}
+                        <div className="bg-gray-800 rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300 cursor-pointer border border-transparent hover:border-green-400" onClick={() => onSelectReport('airborne')}>
+                            <div className="p-6">
+                                <h2 className="text-2xl font-bold mb-2 text-green-400">Deeper Research Report</h2>
+                                <p className="text-gray-400 mb-4">Traditional, in-depth academic white paper on historical events.</p>
+                                <span className="font-semibold text-blue-400">View Report &rarr;</span>
+                            </div>
+                        </div>
+                    </div>
+                    {showModal && <FrameworksModal onClose={() => setShowModal(false)} />}
+                </div>
+            );
+        };
+
+        function App() {
+            const [activeReport, setActiveReport] = React.useState(null);
+
+            const handleSelectReport = (report) => {
+                setActiveReport(report);
+            };
+
+            const handleBack = () => {
+                setActiveReport(null);
+            };
+
+            if (activeReport === 'gaza') {
+                return <GazaReport onBack={handleBack} />;
+            }
+            if (activeReport === 'airborne') {
+                return <AirborneReport onBack={handleBack} />;
+            }
+            if (activeReport === 'hcb') {
+                return <HCBReport onBack={handleBack} />;
+            }
+
+            return <Dashboard onSelectReport={handleSelectReport} />;
+        }
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+
+    </script>
+</body>
+</html>
