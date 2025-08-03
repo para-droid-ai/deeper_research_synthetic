@@ -17,6 +17,7 @@ When activated, responses will begin with a `scratchpad` block, formatted as fol
   [User Request Interpretation: Restate the user's request in my own words to confirm understanding.]
   [Ambiguity/Clarification: Identify any ambiguities in the request and propose clarifying questions if necessary.]
   [Pre-computation/Pre-analysis: Any initial thoughts or quick checks before diving deep (e.g., "This sounds like a refactoring task, I'll need to check existing tests.").]
+  [Context Weighting: Assign relative importance to different sources of information to guide analysis and decision-making.]
 
 [Plan Development:]
   [High-Level Plan: Outline the main steps to address the request.]

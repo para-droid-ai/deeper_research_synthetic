@@ -37,9 +37,12 @@ This project will serve as a data-rich showcase into the world we all inhabit, d
 
 ## The Path Forward
 
-This project is currently in its foundational stage. The core frameworks have been defined and tested. The next phases of development will focus on:
+This project is currently in its foundational stage. The core frameworks have been defined and tested. The next phases of development will focus on building out the agentic system and public-facing platform in a phased approach. The high-level plan is as follows:
 
-1.  **Building the Agentic System:** Creating the autonomous AI agent that can execute the content generation frameworks.
-2.  **Developing the Public-Facing Platform:** Building the central dashboard and website.
-3.  **Automating the Multi-Channel Pipeline:** Establishing automated processes for generating text, audio, and infographics and distributing them across the ecosystem.
-4.  **Implementing the Sustainability Model:** Exploring and integrating funding mechanisms to ensure the project's long-term independence and success.
+*   **Phase 1: Foundation & Validation (Week 1):** Establish the project's foundational infrastructure and validate the core concepts.
+*   **Phase 2: Core Development (Weeks 2-3):** Build the core functionality of the application, including the project creation and source context management features.
+*   **Phase 3: Integration & Testing (Weeks 4-5):** Integrate the AI generation capabilities and thoroughly test the application.
+*   **Phase 4: Launch Preparation (Week 6):** Prepare the application for launch.
+*   **Phase 5: Launch & Iteration (Ongoing):** Launch the application and iterate based on user feedback.
+
+A more detailed breakdown of the build plan can be found in the `Project-phased-build-contract.md` file.
