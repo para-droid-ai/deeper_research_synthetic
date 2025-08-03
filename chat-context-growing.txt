@@ -1,0 +1,45 @@
+FROM: MYSELF/PARADROID to neutronique (fan) :
+
+<chat>
+getting starting on automatting it into an agentic app, with the goal being an actual public dashboard people can access
+
+we'll see how it goes. the goal was to just get a github repo started to share the reports easily.
+but may as well dump the html from the infographics in to have that become a template for the entire dashboard.
+thanks for the feedback and interest. it helps keep me working on it.
+i have some other projects going as well.
+and as of now have a 22 chapter novel on elevenlabs reader's audiobook app.
+
+https://elevenreader.io/app/reader/shared/8f2eaf5e39bb5b95260e9babd23b497635255e8143c2a9a2f9eabbb7895d7789/zLKozjmjBBv7U3k4hCtY
+ElevenReader: The Apotheosis Protocol
+Listen to a preview of this read or download the app to play the full read.
+ElevenReader: The Apotheosis Protocol
+also my podcast that hasn't seen an update since December
+https://youtube.com/playlist?list=PL0nYGADbqLH79bfFh2DphwX3o6q50mVOr&si=AzvSH_jMkIQzwGEe
+
+all the same content/focuses. just in audio only format.
+it's on all podcast apps as well
+powered by RSS.
+so when i restart it, I can just start pushing stuff out again easily.
+to push things for the Human-Condition-Benchmark Dashboard once it's ready
+_paradroid
+[PPLX]
+ — 1:05 AM
+this entire report/podcast episode (transcript, it's a podcast for me with Edge/Read Aloud) is from a new Warfronts video that was around 40 minutes long. 
+
+https://gemini.google.com/share/e5e80cf84ed5
+
+you can see the workflow i use for this
+when it's dialed in, it only takes some repeatable prompts or rich source content to transform it into the specific style/format I want to share.
+not to show the man behind the curtain or anything.
+it's taking me 2+ years to understand things well enough to layer the tools together very specifically, to have it do what I want
+something I'll be doing some content on, AI as a force multipler instead of an outsourcing tool. while using my scratchpad framework to showcase how reviewing "how" a logical machine works through a problem with a human-centric focus, itself becomes a learning tool. essentially letting you see your own ideas deconstructed and rebuilt from an external perspective.
+it's kind of wild when you really get into it with specific things. either way.
+i have lots to share, and feel like it's data/content worth absorbing. i've spent a long time trying to not push AI sloop content. the entire 1 button/prompt and share it in mass just isn't my style. it's cheap. it's akin to sharing a chat log with your imaginary friend. it's low effort, that will be lost to time in a few weeks.
+so anyway.
+
+not saying yours or anyones content they share is low efffort. but there is a flood of low effort content just being pushed in hopes it sticks. 
+
+point being, i'm not planing on really pushing this out until it's ready to be digested without any ambiguity. it needs to be iron-clad if it's to be respected. it needs to showcase existing content and direct people to that content. letting the dashboard just be an AI driven, data-rich showcase into the very same world we all inhabit. and how the shit happening in one place can directly impact another random corner or spot on our globe. peoples trials and experiences can and should be used to increase shared understanding/etc.
+
+/ted talk
+</chat>
