@@ -1,0 +1,9 @@
+<task context>
+convert this detailed long report, into my podcast synthetic formatting, while retaining all information, depth, and length of the existing report. don't change anything aside from framing/questions/exploration/etc. I am going to provide two versions of the pod-synth format. you will review both for context, however the 2nd screenshot showcases a more news specific task. ignore these aspects and focus on the preamble, intro question, weaving the question into the topics themselves in a way that the podcast will restate the question near the middle to summarize/analyze the first half so far. then proceed to the 2nd/end half, steering the narrative based on the direct content of the 15k word report (retaining depth/wording/detail/facts/etc), based on the main question. then proceed to the end segment with the summary of all aspects/topics so far, wrapping it up, focusing back on the main question, stating it again, and leaving the listeners wanting more. include details on where the listener can learn more about the topics at hand. and then sign off with the stated ending.
+</task context>
+
+<length>
+
+MUST BE 15-20K WORDS LONG WITH YOUR ADDED CONTEXT/WEAVING.
+
+</length>
