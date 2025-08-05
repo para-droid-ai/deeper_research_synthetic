@@ -1,5 +1,3 @@
-<img src="https://r2cdn.perplexity.ai/pplx-full-logo-primary-dark%402x.png" class="logo" width="120"/>
-
 # The Kashmir Conflict: A 70-Year Struggle Between India and Pakistan (1947-2025)
 
 The conflict between India and Pakistan over Kashmir stands as one of the world's most intractable territorial disputes, spanning more than seven decades since the 1947 partition of British India. At its core lies the disputed accession of the princely state of Jammu and Kashmir to India-a controversial decision that has triggered four major wars (1947-48, 1965, 1971, 1999), countless skirmishes, and a prolonged insurgency. The introduction of nuclear weapons by both nations in 1998 transformed the conflict into a potential global catastrophe, while the most recent military escalation in May 2025-with India's "Operation Sindoor" strikes and Pakistan's retaliatory actions-represents the most dangerous confrontation in over two decades. As casualties mount and tensions escalate between these nuclear-armed neighbors, understanding the historical trajectory and complex dimensions of this conflict has never been more urgent.
