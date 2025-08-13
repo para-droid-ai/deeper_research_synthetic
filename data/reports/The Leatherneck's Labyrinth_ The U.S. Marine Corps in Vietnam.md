@@ -1,5 +1,5 @@
-# **The Leatherneck's Labyrinth: The U.S. Marine Corps in Vietnam** 
-## ***1950-1975. August 13, 2025, 03:36 UTC (23:36 EST)***
+# **The Leatherneck's Labyrinth: The U.S. Marine Corps in Vietnam:** ***1950-1975*** 
+## ***August 13, 2025, 03:36 UTC (23:36 EST)***
 
 Good morning.
 
