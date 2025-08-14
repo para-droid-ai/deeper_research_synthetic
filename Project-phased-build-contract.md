@@ -58,8 +58,8 @@
 ### Phase 2: Core Development (Weeks 2-3)
 **Primary Objective**: To build the core functionality of the application.
 **Deliverables**:
-- [ ] Backend: API endpoints for creating, reading, updating, and deleting projects.
-- [ ] Frontend: UI for creating a new project, selecting a framework, and providing source context.
+- [x] Backend: API endpoints for creating, reading, updating, and deleting projects.
+- [x] Frontend: UI for creating a new project, selecting a framework, and providing source context.
 - [ ] Backend: Integration with a vector database for source context management.
 **Key Activities**:
 1.  Develop the backend API.

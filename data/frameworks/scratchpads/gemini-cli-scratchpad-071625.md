@@ -42,3 +42,7 @@ When activated, responses will begin with a `scratchpad` block, formatted as fol
   [Alternative Approaches (if any): Other ways the task could have been approached.]
 
 [Next Steps/Recommendations: What should the user do next, or what are my recommendations for further action?]
+```
+[[Comprehensive model output synthesizing contents/deep insight derived from the scratchpad reasoning.]]
+
+[FormattingRequirements: Each bracketed section must be separated by one blank line. Do not place sections directly adjacent to each other.]

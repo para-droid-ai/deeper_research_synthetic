@@ -1,42 +1,329 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* General App Layout */
+:root {
+    --background-dark: #111827;
+    --background-light: #1f2937;
+    --background-lighter: #374151;
+    --border-color: #4b5563;
+    --text-primary: #d1d5db;
+    --text-secondary: #9ca3af;
+    --accent-blue: #3b82f6;
+    --accent-blue-hover: #2563eb;
+    --accent-red: #ef4444;
+    --accent-red-hover: #dc2626;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--background-dark);
+    color: var(--text-primary);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.app-container {
+    display: flex;
+    height: 100vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* Sidebar */
+.sidebar {
+    width: 300px;
+    background-color: var(--background-light);
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
 }
 
-.card {
-  padding: 2em;
+.sidebar-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
 }
 
-.read-the-docs {
-  color: #888;
+.sidebar-header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.sidebar-header p {
+    margin: 0;
+    color: var(--text-secondary);
+}
+
+.project-list {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.project-item {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.project-item:hover {
+    background-color: var(--background-lighter);
+}
+
+.project-item.selected {
+    background-color: var(--accent-blue);
+    color: white;
+}
+
+.project-item h3 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.project-item p {
+    margin: 0.25rem 0 0;
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+.new-project-btn {
+    display: block;
+    width: calc(100% - 3rem);
+    margin: 1.5rem;
+    padding: 0.75rem;
+    background-color: var(--accent-blue);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.new-project-btn:hover {
+    background-color: var(--accent-blue-hover);
+}
+
+/* Main Content */
+.main-content {
+    flex-grow: 1;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+.empty-state {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: var(--text-secondary);
+}
+
+.workspace-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
+.workspace-header h2 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.delete-btn {
+    background-color: var(--accent-red);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.delete-btn:hover {
+    background-color: var(--accent-red-hover);
+}
+
+.project-details p {
+    margin: 0.5rem 0;
+    color: var(--text-secondary);
+}
+
+.project-details strong {
+    color: var(--text-primary);
+}
+
+.source-context-editor, .agent-workflow {
+    margin-top: 2rem;
+}
+
+.source-context-editor h3, .agent-workflow h3 {
+    margin-bottom: 0.5rem;
+}
+
+.source-context-editor p, .agent-workflow p {
+    margin-top: 0;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Add styles for react-grid-layout */
+.react-grid-layout {
+    position: relative;
+    transition: height 200ms ease;
+}
+.react-grid-item {
+    transition: all 200ms ease;
+    transition-property: left, top;
+    background: var(--background-light);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+.react-grid-item.react-grid-placeholder {
+    background: var(--accent-blue);
+    opacity: 0.2;
+    transition-duration: 100ms;
+    z-index: 2;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+.react-grid-item > .react-resizable-handle {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    bottom: 0;
+    right: 0;
+    cursor: se-resize;
+}
+
+.panel {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.panel h3 {
+    margin-top: 0;
+    font-size: 1.1rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.panel textarea {
+    flex-grow: 1;
+    width: 100%;
+    background-color: var(--background-dark);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    color: var(--text-primary);
+    padding: 0.5rem;
+    font-family: 'Menlo', 'Monaco', monospace;
+    font-size: 0.9rem;
+    resize: none; /* Disabled resize as react-grid-layout handles it */
+    box-sizing: border-box;
+}
+
+.panel-placeholder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-secondary);
+}
+
+
+.generate-btn {
+    background-color: var(--accent-blue);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.2s;
+}
+
+.generate-btn:hover {
+    background-color: var(--accent-blue-hover);
+}
+
+/* Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: var(--background-light);
+    padding: 2rem;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 500px;
+    border: 1px solid var(--border-color);
+}
+
+.modal-content h2 {
+    margin-top: 0;
+}
+
+.modal-content form label {
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+}
+
+.modal-content form input, .modal-content form select {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--background-dark);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.modal-actions {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.modal-actions button {
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.modal-actions button[type="button"] {
+    background-color: var(--background-lighter);
+    color: var(--text-primary);
+}
+
+.modal-actions button[type="submit"] {
+    background-color: var(--accent-blue);
+    color: white;
 }
