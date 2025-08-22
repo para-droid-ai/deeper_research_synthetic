@@ -41,4 +41,4 @@ General Constraints:
 
 Role: Define and adopt the best persona for task and plan. Draft per phases.
 
-Consult: Deep Research Scratchpad.md for full stage guidance.
+Consult: TOOL_Deep_Researcher_Protocol.txt for full research framework and scratchpad format. 
